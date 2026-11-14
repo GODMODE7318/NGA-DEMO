@@ -7,14 +7,14 @@ export const site = {
   name: 'National Global Academy',
   shortName: 'NGA',
   domain: 'https://nationalglobalacademy.com',
-  description: 'Training and career guidance for cruise line and Merchant Navy pathways after Class 10 and Class 12.',
+  description: 'Training and career guidance for cruise line, aviation, merchant navy and hospitality pathways after Class 10 and Class 12.',
 
   // [CONFIRM: Replace empty values and display placeholders with verified details.]
-  phone: '', // Digits and + only, e.g. +919876543210
-  phoneDisplay: '[CONFIRM: +91 XXXXX XXXXX]',
-  whatsapp: '', // Country code + number, digits only, e.g. 919876543210
-  email: '', // e.g. admissions@nationalglobalacademy.com
-  emailDisplay: '[CONFIRM: admissions email]',
+  phone: '+918858334842', // Digits and + only, e.g. +919876543210
+  phoneDisplay: '+91 8858334842',
+  whatsapp: '918858334842', // Country code + number, digits only, e.g. 919876543210
+  email: 'support@nationalglobalacademy.com', // e.g. admissions@nationalglobalacademy.com
+  emailDisplay: 'support@nationalglobalacademy.com',
   address: '[CONFIRM: Full academy address, city, state and PIN code]',
   mapsEmbedUrl: '', // [CONFIRM: Google Maps embed URL, not a regular maps link.]
   googleBusinessProfile: '', // [CONFIRM: Public Google Business Profile URL.]
@@ -34,8 +34,12 @@ export const site = {
     linkedin: '' // [CONFIRM]
   },
 
-  intakes: ['January Batch', 'July Batch'],
-  defaultMessage: 'Hello National Global Academy, I would like free counselling about course eligibility, fees and admissions.'
+  intakes: ['Monthly Batch'],
+  defaultMessage: 'Hello National Global Academy, I would like free counselling about course eligibility, fees and admissions.',
+
+  // NEW: Live seat counter configuration
+  batchSeatsStart: 12, // Start count for November Batch — decreases every few hours
+  batchSeatsMin: 3
 };
 
 export const images = {

@@ -1,4 +1,4 @@
-import { mkdir, rm, writeFile, copyFile } from 'node:fs/promises';
+import { mkdir, rm, writeFile, copyFile, readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from './site.config.mjs';
@@ -55,7 +55,9 @@ await writeFile(join(out,'assets/site-config.js'),`window.NGA_CONFIG=${JSON.stri
 await copyFile(join(root,'src/styles.css'),join(out,'assets/styles.css'));
 await copyFile(join(root,'src/main.js'),join(out,'assets/main.js'));
 await copyFile(join(root,'public/assets/favicon.svg'),join(out,'assets/favicon.svg'));
-await copyFile(join(root,'public/assets/national-global-academy-course-guide.pdf'),join(out,'assets/national-global-academy-course-guide.pdf'));
+// Base64 source keeps the project fully text-deployable; Vercel regenerates the PDF at build time.
+const brochureBase64 = await readFile(join(root,'public/assets/national-global-academy-course-guide.base64'),'utf8');
+await writeFile(join(out,'assets/national-global-academy-course-guide.pdf'),Buffer.from(brochureBase64,'base64'));
 await copyFile(join(root,'public/assets/site.webmanifest'),join(out,'assets/site.webmanifest'));
 await copyFile(join(root,'public/_headers'),join(out,'_headers'));
 

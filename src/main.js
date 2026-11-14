@@ -225,7 +225,7 @@
   if (brochureModal) {
     let opened = false;
     const openBrochure = (automatic = false) => {
-      if (opened || brochureModal.open || document.querySelector('dialog[open]')) return;
+      if (brochureModal.open || document.querySelector('dialog[open]') || (automatic && opened)) return;
       if (automatic && sessionStorage.getItem('nga_brochure_prompted')) return;
       opened = true;
       if (automatic) sessionStorage.setItem('nga_brochure_prompted', '1');

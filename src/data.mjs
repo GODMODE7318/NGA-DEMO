@@ -31,13 +31,13 @@ export const courses = [
   {
     slug: 'cruise-line-hospitality',
     title: 'Cruise Line Hospitality Training',
-    shortTitle: 'Cruise Hospitality',
+    shortTitle: 'Cruise Industry',
     keyword: 'cruise ship hospitality course',
     path: '/courses/cruise-line-hospitality/',
     image: images.hospitality,
     imageAlt: 'Representative hotel hospitality interior for cruise hospitality training',
     imageSlot: 'Course hero — replace with NGA hospitality lab or cruise service training photograph.',
-    eyebrow: 'Cruise Line pathway',
+    eyebrow: 'Cruise Line pathway • Most Trending • Highly Chosen',
     h1: 'Cruise Line Hospitality Training',
     tagline: 'Build the service skills, professional habits and interview readiness to pursue hospitality roles at sea.',
     overview: 'International cruise ships operate like floating resorts. Behind every guest experience are teams across food and beverage, guest services, housekeeping and culinary operations. This pathway helps students understand that workplace, communicate professionally and prepare for recruitment—without promising a job or bypassing employer selection.',
@@ -102,7 +102,7 @@ export const courses = [
       ['External recognised pre-sea course', '[CONFIRM: Explain whether separate and payable to institution]'],
       ['Medical and certification', '[CONFIRM: Typical payable parties; no invented amount]'],
       ['Uniform, kit and study material', '[CONFIRM: Included / amount]'],
-      ['Accommodation and meals', '[CONFIRM: Included / optional / amount]']
+      ['Accommodation and meals', '[CONFIRM: Optional / included / amount]']
     ],
     parents: 'The safest first decision is not a course payment—it is eligibility and medical verification. We ask parents to review the chosen route, the recognised institution responsible for certification, all external costs and the reality that sea jobs depend on vacancies, competence and documents.',
     faqs: [
@@ -153,6 +153,80 @@ export const courses = [
       ['Can girls apply for GP Rating?', 'Women can pursue maritime careers where current course and employer criteria are met. Families should verify training facilities, onboard policies and employer support systems directly.'],
       ['What happens after GP Rating?', 'After required recognised training and certification, candidates can seek suitable rating opportunities. Employment is not automatic; document readiness, selection and vacancies matter. Further progression requires applicable sea service and certification.']
     ]
+  },
+  {
+    slug: 'aviation',
+    title: 'Aviation Training Pathway',
+    shortTitle: 'Aviation',
+    keyword: 'aviation training course after 12th',
+    path: '/courses/aviation/',
+    image: images.training,
+    imageAlt: 'Representative aviation training session',
+    imageSlot: 'Course hero — replace with verified NGA aviation training photograph.',
+    eyebrow: 'Aviation pathway • Most Trending • Highly Chosen',
+    h1: 'Aviation Training Pathway',
+    tagline: 'Understand aviation ground, cabin and support roles after Class 10 or 12—with realistic preparation and guidance.',
+    overview: '[CONFIRM: Write 100–150 words describing aviation training, academy role, preparation approach and next steps. Do not claim affiliation or placement without evidence.] Aviation pathways include ground operations, cabin support, cargo and technical support; requirements vary by employer and role.',
+    who: ['Class 10/12 students exploring aviation ground or cabin roles', 'Graduates considering aviation support or technical pathways', 'Students comfortable with regulations, safety and customer service', 'Families comparing aviation and maritime pathways'],
+    duration: '[CONFIRM: NGA preparation duration; external aviation training duration varies]',
+    mode: '[CONFIRM: Classroom, practical or hybrid]',
+    eligibility: ['Class 10 or 12 depending on role; check current airline or airport criteria', 'Age limits vary by employer and role; verify before applying', 'English proficiency and communication standards', 'Medical and fitness standards as per aviation authority guidelines', 'Valid documents and identity verification'],
+    outcomes: ['Ground operations and support roles', 'Cabin or passenger service roles', 'Cargo, logistics or technical support pathways', 'Further certification depending on role and employer'],
+    salary: '[CONFIRM: Add sourced, dated range only if reliable.] Label every range “indicative industry ranges”; never imply that training guarantees employment or earnings. Aviation salaries vary by employer, contract and location.',
+    modules: [['Sub-courses to be added', '[CONFIRM: Course titles, curriculum and delivery details.]']],
+    fees: [
+      ['NGA preparation support', '[CONFIRM: Amount + taxes]'],
+      ['External aviation training fee', '[CONFIRM: Institution and amount, if NGA is not the certifying provider]'],
+      ['Medical / certification / documents', '[CONFIRM: Inclusions and external charges]'],
+      ['Uniform, kit and study material', '[CONFIRM: Included / amount]'],
+      ['Accommodation and meals', '[CONFIRM: Optional / included / amount]']
+    ],
+    parents: 'Aviation roles vary widely. Before paying, verify the recognised training provider, actual job scope, medical requirements and realistic salary ranges. National Global Academy provides preparation and guidance; employer selection is separate.',
+    faqs: [
+      ['What aviation courses are available after 12th?', 'Ground operations, cabin support, cargo and technical support pathways exist. Requirements and recognised training differ; verify current criteria before enrolling.'],
+      ['Are aviation salaries guaranteed?', 'No. Salaries depend on employer, role, location and experience. These are indicative industry ranges only; training does not guarantee recruitment.'],
+      ['What medical standards apply?', 'Standards vary by role—cabin, ground or technical. Obtain current authority guidelines and complete assessments before paying substantial fees.'],
+      ['How do I choose between aviation and maritime?', 'Compare work environment, contract length, medical rules and family preferences. Use the eligibility checker and counselling before deciding.'],
+      ['[CONFIRM: Add fifth aviation FAQ]', '[CONFIRM: Specific, verified answer.]']
+    ],
+    noindex: false
+  },
+  {
+    slug: 'hospitality',
+    title: 'Hospitality Training Pathway',
+    shortTitle: 'Hospitality',
+    keyword: 'hospitality training course after 12th',
+    path: '/courses/hospitality/',
+    image: images.hospitality,
+    imageAlt: 'Representative hospitality training session',
+    imageSlot: 'Course hero — replace with verified NGA hospitality training photograph.',
+    eyebrow: 'Hospitality pathway',
+    h1: 'Hospitality Training Pathway',
+    tagline: 'Explore hotel, resort and service roles after Class 10 or 12—with honest preparation and guidance.',
+    overview: '[CONFIRM: Write 100–150 words describing hospitality training, academy role, preparation approach and next steps. Do not claim affiliation or placement without evidence.] Hospitality pathways include hotel, resort, restaurant and event support; requirements vary by employer.',
+    who: ['Class 10/12 students exploring hotel or resort roles', 'Graduates considering hospitality support or management pathways', 'Students comfortable with customer service and teamwork', 'Families comparing hospitality and maritime pathways'],
+    duration: '[CONFIRM: NGA preparation duration; external hospitality training duration varies]',
+    mode: '[CONFIRM: Classroom, practical or hybrid]',
+    eligibility: ['Class 10 or 12 depending on role; check current employer or institution criteria', 'Age limits vary by employer and role; verify before applying', 'English proficiency and communication standards', 'Medical and fitness standards as per employer guidelines', 'Valid documents and identity verification'],
+    outcomes: ['Hotel or resort guest service roles', 'Food & beverage or kitchen support', 'Event and venue coordination', 'Further certification depending on role and employer'],
+    salary: '[CONFIRM: Add sourced, dated range only if reliable.] Label every range “indicative industry ranges”; never imply that training guarantees employment or earnings. Hospitality salaries vary by employer, location and experience.',
+    modules: [['Sub-courses to be added', '[CONFIRM: Course titles, curriculum and delivery details.]']],
+    fees: [
+      ['NGA preparation support', '[CONFIRM: Amount + taxes]'],
+      ['External hospitality training fee', '[CONFIRM: Institution and amount, if NGA is not the certifying provider]'],
+      ['Medical / certification / documents', '[CONFIRM: Inclusions and external charges]'],
+      ['Uniform, kit and study material', '[CONFIRM: Included / amount]'],
+      ['Accommodation and meals', '[CONFIRM: Optional / included / amount]']
+    ],
+    parents: 'Hospitality roles vary widely. Before paying, verify the recognised training provider, actual job scope, medical requirements and realistic salary ranges. National Global Academy provides preparation and guidance; employer selection is separate.',
+    faqs: [
+      ['What hospitality courses are available after 12th?', 'Hotel, resort, event and service pathways exist. Requirements and recognised training differ; verify current criteria before enrolling.'],
+      ['Are hospitality salaries guaranteed?', 'No. Salaries depend on employer, role, location and experience. These are indicative industry ranges only; training does not guarantee recruitment.'],
+      ['What medical standards apply?', 'Standards vary by role and employer. Obtain current authority guidelines and complete assessments before paying substantial fees.'],
+      ['How do I choose between hospitality and maritime?', 'Compare work environment, contract length, medical rules and family preferences. Use the eligibility checker and counselling before deciding.'],
+      ['[CONFIRM: Add fifth hospitality FAQ]', '[CONFIRM: Specific, verified answer.]']
+    ],
+    noindex: false
   },
   {
     slug: 'course-template',
