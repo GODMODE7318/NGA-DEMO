@@ -1,4 +1,4 @@
-import { mkdir, rm, writeFile, copyFile, readFile } from 'node:fs/promises';
+import { mkdir, rm, writeFile, copyFile, readFile, cp } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from './site.config.mjs';
@@ -6,10 +6,11 @@ import { courses, articles } from './src/data.mjs';
 import { subcourses } from './src/subcourses-data.mjs';
 import { subcoursePage } from './src/subcourses.mjs';
 import { homePage } from './src/home.mjs';
-import { coursesHubPage, coursePage } from './src/courses.mjs';
+import { coursesHubPage, coursePage, allCoursesPage } from './src/courses.mjs';
 import { cruiseCareersPage, merchantCareersPage } from './src/careers.mjs';
 import { aboutPage, admissionsPage, blogPage, contactPage, thankYouPage, privacyPage, termsPage } from './src/company.mjs';
 import { articlePage, articleTemplatePage } from './src/articles.mjs';
+import { layout } from './src/components.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const out = join(root, 'dist');
@@ -19,6 +20,7 @@ await mkdir(join(out, 'assets'), { recursive: true });
 const pages = [
   {path:'/',html:homePage},
   {path:'/courses/',html:coursesHubPage},
+  {path:'/courses/all/',html:allCoursesPage},
   ...courses.filter(course=>course.slug!=='gp-rating').map(course=>({path:course.path,html:()=>coursePage(course),noindex:course.noindex})),
   ...subcourses.map(course=>({path:course.path,html:()=>subcoursePage(course)})),
   {path:'/cruise-line-careers/',html:cruiseCareersPage},
@@ -57,7 +59,7 @@ const publicClientConfig = {
 await writeFile(join(out,'assets/site-config.js'),`window.NGA_CONFIG=${JSON.stringify(publicClientConfig).replace(/</g,'\\u003c')};\n`);
 await copyFile(join(root,'src/styles.css'),join(out,'assets/styles.css'));
 await copyFile(join(root,'src/main.js'),join(out,'assets/main.js'));
-await copyFile(join(root,'public/assets/favicon.svg'),join(out,'assets/favicon.svg'));
+await cp(join(root,'public/assets'),join(out,'assets'),{recursive:true});
 // Base64 source keeps the project fully text-deployable; Vercel regenerates the PDF at build time.
 const brochureBase64 = await readFile(join(root,'public/assets/national-global-academy-course-guide.base64'),'utf8');
 await writeFile(join(out,'assets/national-global-academy-course-guide.pdf'),Buffer.from(brochureBase64,'base64'));
@@ -68,7 +70,7 @@ const now = '2026-11-10';
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter(p=>!p.noindex).map(p=>`  <url><loc>${site.domain}${p.path}</loc><lastmod>${now}</lastmod><changefreq>${p.path.startsWith('/blog/')?'monthly':'weekly'}</changefreq><priority>${p.path==='/'?'1.0':p.path.includes('/courses/')?'0.9':'0.8'}</priority></url>`).join('\n')}\n</urlset>\n`;
 await writeFile(join(out,'sitemap.xml'),sitemap);
 await writeFile(join(out,'robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${site.domain}/sitemap.xml\n`);
-await writeFile(join(out,'404.html'),`<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page Not Found | National Global Academy</title><link rel="stylesheet" href="/assets/styles.css"></head><body><main class="thank-you"><div class="container thank-you-inner"><span class="eyebrow">404 • Page not found</span><h1>This page has sailed.</h1><p class="lead">The address may have changed. Return to the academy website or explore the career guides.</p><div class="thank-you-actions"><a class="btn btn-navy" href="/">Return to Homepage</a><a class="btn btn-outline" href="/courses/">Explore Courses</a></div></div></main></body></html>`);
+await writeFile(join(out,'404.html'),layout({title:'Page Not Found | National Global Academy',description:'Find the page you need at National Global Academy.',path:'/404/',noindex:true,content:`<section class="thank-you"><div class="container thank-you-inner"><span class="eyebrow">404 • Page not found</span><h1>This page could not be found.</h1><p class="lead">The address may have changed. Return to the academy website or explore the career guides.</p><div class="thank-you-actions"><a class="btn btn-navy" href="/">Return to Homepage</a><a class="btn btn-outline" href="/courses/">Explore Courses</a></div></div></section>`}));
 
 if (failures.length) {
   console.error('\nSEO checks failed:\n' + failures.join('\n'));

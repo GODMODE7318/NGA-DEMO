@@ -1,10 +1,34 @@
-/* NGA — progressive enhancement, accessible interactions and configurable form delivery */
+/* NGA, progressive enhancement, accessible interactions and configurable form delivery */
 (() => {
   'use strict';
   const config = window.NGA_CONFIG || {};
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+  // The published team.json can be edited directly without rebuilding the pages.
+  // Add a real name, photo and verified credentials only when supplied by NGA.
+  const teamGrid = document.querySelector('[data-team-profiles]');
+  if (teamGrid) {
+    fetch('/assets/team.json').then(response => response.ok ? response.json() : null).then(data => {
+      if (!Array.isArray(data?.profiles) || !data.profiles.length) return;
+      const cards = data.profiles.filter(p => typeof p.role === 'string' && p.role).map(p => {
+        const card = document.createElement('article');
+        card.className = 'faculty-card role-only';
+        if (p.photo && p.name && /^(?:\/|https:\/\/)/.test(p.photo)) {
+          const photo = document.createElement('img'); photo.src = p.photo; photo.alt = `Portrait of ${p.name}`;
+          photo.width = 600; photo.height = 650; photo.loading = 'lazy'; card.append(photo);
+        }
+        const body = document.createElement('div');
+        const role = document.createElement('h3'); role.textContent = p.role; body.append(role);
+        if (p.name) { const name = document.createElement('strong'); name.textContent = p.name; body.append(name); }
+        if (p.description) { const description = document.createElement('p'); description.textContent = p.description; body.append(description); }
+        if (p.credentials) { const credentials = document.createElement('p'); credentials.textContent = p.credentials; body.append(credentials); }
+        card.append(body); return card;
+      });
+      if (cards.length) teamGrid.replaceChildren(...cards);
+    }).catch(() => {});
+  }
 
   // Mobile navigation: keyboard closable and scroll locked.
   const menuButton = document.querySelector('[data-menu-toggle]');
@@ -154,7 +178,7 @@
     let enquiry = null;
     try { enquiry = JSON.parse(sessionStorage.getItem('nga_enquiry') || 'null'); } catch (_) { /* no stored data */ }
     if (received) {
-      title.textContent = 'Thank you—your enquiry is on its way.';
+      title.textContent = 'Thank you, your enquiry is on its way.';
       message.textContent = 'Our admissions team can now review your details. For an immediate conversation, continue on WhatsApp.';
       whatsapp.firstChild.textContent = 'Continue on WhatsApp';
     } else {
@@ -186,7 +210,7 @@
       let heading = '';
       let summary = '';
       let links = '';
-      let checks = ['Confirm age and academic criteria for the exact course.', 'Discuss medical/physical requirements before paying substantial fees.', 'Ask for the complete fee sheet and refund terms in writing.'];
+      let checks = ['Confirm age and academic criteria for the exact course.', 'Ask the academy for confirmed course requirements.', 'Ask for the complete fee sheet and refund terms in writing.'];
       if (age === 'under16') {
         heading = 'Build your foundation first';
         summary = 'You have time to compare both pathways. Focus on English, mathematics where relevant, fitness and informed career research. Admission ages vary, so do not pay for a course until eligibility is verified.';
@@ -199,11 +223,11 @@
       } else if (interest === 'merchant') {
         if (education === '10th') {
           heading = 'GP Rating is a route to investigate';
-          summary = 'Your Class 10 starting point may align with a rating pathway. Verify marks, age, eyesight, colour vision and physical standards under current rules before shortlisting institutions.';
+          summary = 'Your Class 10 starting point may align with a rating pathway. Ask the academy for confirmed entry requirements before shortlisting institutions.';
           links = `<a class="btn btn-navy" href="/courses/gp-rating/">Check GP Rating Eligibility</a>`;
         } else if (education === '12th PCM') {
           heading = 'Compare officer and rating pathways';
-          summary = 'Class 12 with PCM can open deck and engineering route discussions, subject to marks, age and medical criteria. Compare DNS, BSc Nautical Science and marine engineering as well as GP Rating.';
+          summary = 'Class 12 with PCM can open deck and engineering route discussions, subject to current course requirements. Compare DNS, BSc Nautical Science and marine engineering as well as GP Rating.';
           links = `<a class="btn btn-navy" href="/courses/merchant-navy/">Find My Merchant Navy Route</a>`;
         } else {
           heading = 'Get a route-specific academic review';
@@ -213,12 +237,12 @@
       } else {
         heading = 'Compare work style before comparing salary';
         summary = education === '12th PCM'
-          ? 'Your PCM background makes a technical route worth exploring, while hospitality remains an option if you prefer guest service. Compare daily duties, contracts and medical requirements.'
+          ? 'Your PCM background makes a technical route worth exploring, while hospitality remains an option if you prefer guest service. Compare daily duties, contracts and course requirements.'
           : 'Start with the kind of work you would enjoy: people-facing cruise hospitality or hands-on commercial ship operations. Then verify the academic route available to you.';
         links = `<a class="btn btn-navy" href="/courses/">Compare Both Pathways</a>`;
       }
       if (age === '25+') summary += ' Because you selected 25+, employer and course age limits need particular attention before you plan around any route.';
-      result.innerHTML = `<span class="eyebrow">Your indicative result</span><h3>${heading}</h3><p>${summary}</p><ul>${checks.map(item => `<li>${item}</li>`).join('')}</ul>${links}<a class="btn btn-outline" href="/admissions/#enquiry">Get a Personal Counselling Call</a><p class="small-note">This result is guidance only—not admission, medical clearance or a job offer.</p>`;
+      result.innerHTML = `<span class="eyebrow">Your indicative result</span><h3>${heading}</h3><p>${summary}</p><ul>${checks.map(item => `<li>${item}</li>`).join('')}</ul>${links}<a class="btn btn-outline" href="/admissions/#enquiry">Get a Personal Counselling Call</a><p class="small-note">This result is an initial guide. Ask the academy for confirmed course requirements.</p>`;
       result.hidden = false;
       result.focus({ preventScroll: true });
       result.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });

@@ -1,0 +1,7 @@
+{
+  "profiles": [
+    {"role": "Academic and Maritime Guidance", "description": "The team helps with academic and maritime guidance."},
+    {"role": "Student and Parent Counselling", "description": "The team helps students and parents with counselling."},
+    {"role": "Hospitality and Interview Preparation", "description": "The team helps with hospitality and interview preparation."}
+  ]
+}

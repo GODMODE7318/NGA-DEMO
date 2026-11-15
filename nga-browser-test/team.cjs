@@ -1,0 +1,1 @@
+const {chromium}=require('playwright');(async()=>{let b=await chromium.launch({args:['--no-sandbox']});let p=await b.newPage();await p.goto('http://127.0.0.1:3000/about/',{waitUntil:'networkidle'});console.log('role cards',await p.locator('[data-team-profiles] .faculty-card').count());console.log(await p.locator('[data-team-profiles] h3').allTextContents());await b.close()})();

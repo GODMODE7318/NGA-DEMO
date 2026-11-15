@@ -1,0 +1,12 @@
+msc.png https://upload.wikimedia.org/wikipedia/commons/8/83/MSC_Cruises_Logo.png
+royal-caribbean.svg https://upload.wikimedia.org/wikipedia/commons/1/15/Royal_Caribbean_logo_%282024%29.svg
+carnival.svg https://upload.wikimedia.org/wikipedia/en/c/ca/Carnival_Cruise_Line_Logo.svg
+marriott.svg https://upload.wikimedia.org/wikipedia/commons/4/44/Marriott_Logo.svg
+hilton.svg https://upload.wikimedia.org/wikipedia/commons/8/8a/Hilton_Worldwide_logo.svg
+air-india.svg https://upload.wikimedia.org/wikipedia/commons/b/bf/Air_India_2023.svg
+indigo.svg https://upload.wikimedia.org/wikipedia/commons/6/69/IndiGo_Airlines_logo.svg
+emirates.svg https://upload.wikimedia.org/wikipedia/commons/d/d0/Emirates_logo.svg
+maersk.svg https://upload.wikimedia.org/wikipedia/commons/4/47/Maersk_Line_Logo%2C_July_2021.svg
+norwegian.svg https://upload.wikimedia.org/wikipedia/commons/2/27/Norwegian-Cruise-Line-Logo.svg
+costa.svg https://upload.wikimedia.org/wikipedia/commons/f/fc/Costa-logo-2021.svg
+All logos are third party trademarks. Confirm usage rights and avoid implying affiliations before publication.

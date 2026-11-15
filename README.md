@@ -181,12 +181,17 @@ To add a course, duplicate an object in `courses`, provide a unique slug and con
 
 This is a complete website implementation, but **business facts in `[CONFIRM: …]` markers are intentionally not invented**. Client sign-off is required for fees, contact details, faculty, statistics, testimonials, exact academy/certifying role, facilities, dates, policies and legal jurisdiction.
 
-## November batch and pathways update
+## Upcoming batch and course pathways
 
 The four featured pathways are Cruise Industry, Merchant Navy, Aviation and Hospitality. The GP Rating page remains available as a separate maritime guide. Six sub-courses are configured in `src/subcourses-data.mjs`; each has its own detail page, including the existing GP Rating URL. Their inclusion lists and descriptions use the academy-supplied content.
 
-The November banner displays `batchSeatsStart` from `site.config.mjs` (currently 12). This is a manually maintained value, **not a live admissions inventory**; confirm the number and update it whenever availability changes. No simulated countdown is used. `batchSeatsMin` is a configuration placeholder, not an automatic decrement. Update or remove the November banner when it is no longer current. Confirm the 10+ years claim, monthly batch availability and all remaining `[CONFIRM: …]` details before publication.
+The Upcoming Batch banner displays `batchSeatsStart` from `site.config.mjs` (currently 12). This is a manually maintained value, **not a live admissions inventory**; confirm the number and update it whenever availability changes. No simulated countdown is used. `batchSeatsMin` is a configuration placeholder, not an automatic decrement. Update this value whenever verified availability changes. Confirm the 10+ years claim, monthly batch availability and all remaining `[CONFIRM: …]` details before publication.
 
 The enquiry inbox and brochure lead endpoint are not connected by default. Enquiries use a WhatsApp handoff, while brochure download does not save a lead unless an endpoint is configured. Employer names in the marquee are examples, not claims of partnerships or placements.
 
-Course posters use replaceable Unsplash image slots in `src/subcourses-data.mjs`. Review stock image licensing and the academy’s listed sponsorship and placement-support terms before publishing. The form selects a course from the `course` query parameter on the admissions page; it retains the existing WhatsApp handoff when the form endpoint is not configured.
+Original branded course posters are stored in `public/assets/posters`; their Unsplash photography references are in `src/subcourses-data.mjs`. Review stock image licensing and the academy’s listed sponsorship and placement-support terms before publishing. The form selects a course from the `course` query parameter on the admissions page; it retains the existing WhatsApp handoff when the form endpoint is not configured.
+
+## Team profiles
+The About page reads `/assets/team.json` at runtime. Edit that deployed JSON file directly to add real faculty names, photo URLs and verified credentials when NGA supplies them. The default contains role cards only. The existing role cards remain visible if the JSON cannot be loaded.
+
+The employer marks are saved in `public/assets/logos`. Their source URLs are recorded in `public/assets/logos/SOURCES.txt`. Confirm trademark and usage permissions before publishing. The Carnival asset was sourced from English Wikipedia and may be subject to nonfree usage restrictions.

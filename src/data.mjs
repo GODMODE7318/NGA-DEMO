@@ -11,7 +11,7 @@ export const generalFaqs = [
   },
   {
     q: 'Is life onboard safe, and is it suitable for girls?',
-    a: 'Reputable shipping and cruise employers maintain onboarding rules, grievance channels and workplace conduct policies, but conditions vary by company and ship. Students—including women—should verify the employer, reporting channels, accommodation arrangements and contract before joining. Families should keep copies of every document and maintain regular contact.'
+    a: 'Reputable shipping and cruise employers maintain onboarding rules, grievance channels and workplace conduct policies, but conditions vary by company and ship. Students, including women, should verify the employer, reporting channels, accommodation arrangements and contract before joining. Families should keep copies of every document and maintain regular contact.'
   },
   {
     q: 'What are the eyesight and medical rules?',
@@ -36,11 +36,11 @@ export const courses = [
     path: '/courses/cruise-line-hospitality/',
     image: images.hospitality,
     imageAlt: 'Representative hotel hospitality interior for cruise hospitality training',
-    imageSlot: 'Course hero — replace with NGA hospitality lab or cruise service training photograph.',
+    imageSlot: 'Course hero, replace with NGA hospitality lab or cruise service training photograph.',
     eyebrow: 'Cruise Line pathway • Most Trending • Highly Chosen',
     h1: 'Cruise Line Hospitality Training',
     tagline: 'Build the service skills, professional habits and interview readiness to pursue hospitality roles at sea.',
-    overview: 'International cruise ships operate like floating resorts. Behind every guest experience are teams across food and beverage, guest services, housekeeping and culinary operations. This pathway helps students understand that workplace, communicate professionally and prepare for recruitment—without promising a job or bypassing employer selection.',
+    overview: 'International cruise ships operate like floating resorts. Behind every guest experience are teams across food and beverage, guest services, housekeeping and culinary operations. This pathway helps students understand that workplace, communicate professionally and prepare for recruitment, without promising a job or bypassing employer selection.',
     who: ['Class 10/12 students exploring a first hospitality role', 'Graduates or diploma holders moving into guest service', 'Students who enjoy people-facing work and can adapt to a multicultural team', 'Applicants ready to work shifts and live onboard for a contract'],
     duration: '[CONFIRM: Total duration, weekly schedule and any internship period]',
     mode: '[CONFIRM: Classroom / practical training location and delivery format]',
@@ -62,7 +62,7 @@ export const courses = [
       ['Medical, passport and visa', 'Usually external; [CONFIRM: Guidance and payable parties]'],
       ['Hostel and meals', '[CONFIRM: Optional / included / amount]']
     ],
-    parents: 'A cruise contract can offer exposure and savings potential, but it also means months away, shared accommodation and demanding service hours. We encourage parents to attend counselling, review the complete cost sheet and understand that the academy’s role is training and career guidance—not guaranteed recruitment.',
+    parents: 'A cruise contract can offer exposure and savings potential, but it also means months away, shared accommodation and demanding service hours. We encourage parents to attend counselling, review the complete cost sheet and understand that the academy’s role is training and career guidance, not guaranteed recruitment.',
     faqs: [
       ['Can I join a cruise hospitality course after 12th?', 'Yes, Class 12 students can explore entry-level pathways. Employer age, English, medical and document requirements still apply. A counselling session should map your profile to suitable departments.'],
       ['Do I need a hotel management degree?', 'Not for every entry-level role. Relevant skills, communication and experience can matter; some specialised or senior positions prefer hospitality qualifications.'],
@@ -78,10 +78,10 @@ export const courses = [
     path: '/courses/merchant-navy/',
     image: images.deck,
     imageAlt: 'Representative ship at sea for Merchant Navy career training',
-    imageSlot: 'Course hero — replace with verified NGA cadet/deck training photograph.',
+    imageSlot: 'Course hero, replace with verified NGA cadet/deck training photograph.',
     eyebrow: 'Deck, engine & rating routes',
     h1: 'Merchant Navy Training Pathway',
-    tagline: 'Understand the right sea-career route after Class 10 or 12—before you invest time and money.',
+    tagline: 'Understand the right sea-career route after Class 10 or 12, before you invest time and money.',
     overview: '“Merchant Navy” is not one course. It includes officer and rating pathways across deck and engine departments, each with different academic, medical and sea-service requirements. This programme begins with route selection and foundational preparation, then helps students understand recognised training, documentation and the responsibilities of working on commercial vessels.',
     who: ['Class 10 students considering a rating pathway such as GP Rating', 'Class 12 PCM students exploring deck or engine officer routes', 'Students comfortable with technical work, routines and time away from home', 'Families who want clarity on eligibility, medical checks and recognised institutions'],
     duration: '[CONFIRM: NGA preparation duration; recognised pre-sea course duration varies by route]',
@@ -104,7 +104,7 @@ export const courses = [
       ['Uniform, kit and study material', '[CONFIRM: Included / amount]'],
       ['Accommodation and meals', '[CONFIRM: Optional / included / amount]']
     ],
-    parents: 'The safest first decision is not a course payment—it is eligibility and medical verification. We ask parents to review the chosen route, the recognised institution responsible for certification, all external costs and the reality that sea jobs depend on vacancies, competence and documents.',
+    parents: 'The safest first decision is not a course payment, it is eligibility and medical verification. We ask parents to review the chosen route, the recognised institution responsible for certification, all external costs and the reality that sea jobs depend on vacancies, competence and documents.',
     faqs: [
       ['Which Merchant Navy course is best after 12th?', 'It depends on PCM eligibility, medical fitness, budget and whether you aim for deck, engine or another department. DNS, BSc Nautical Science and marine engineering are distinct routes; verify current DG Shipping and institution criteria.'],
       ['Can I join after 12th without PCM?', 'Some rating or hospitality-related maritime routes may be available, but core deck/engine officer pathways generally specify academic subjects. Get a written route assessment before applying.'],
@@ -120,7 +120,7 @@ export const courses = [
     path: '/courses/gp-rating/',
     image: images.cadet,
     imageAlt: 'Representative cargo ship deck for GP Rating preparation pathway',
-    imageSlot: 'Course hero — replace with actual GP Rating practical training image.',
+    imageSlot: 'Course hero, replace with actual GP Rating practical training image.',
     eyebrow: 'After Class 10 • Rating route',
     h1: 'GP Rating Preparation Pathway',
     tagline: 'Prepare for a General Purpose Rating route with clear eligibility checks, foundational learning and application guidance.',
@@ -162,10 +162,10 @@ export const courses = [
     path: '/courses/aviation/',
     image: images.training,
     imageAlt: 'Representative aviation training session',
-    imageSlot: 'Course hero — replace with verified NGA aviation training photograph.',
+    imageSlot: 'Course hero, replace with verified NGA aviation training photograph.',
     eyebrow: 'Aviation pathway • Most Trending • Highly Chosen',
     h1: 'Aviation Training Pathway',
-    tagline: 'Understand aviation ground, cabin and support roles after Class 10 or 12—with realistic preparation and guidance.',
+    tagline: 'Understand aviation ground, cabin and support roles after Class 10 or 12, with realistic preparation and guidance.',
     overview: '[CONFIRM: Write 100–150 words describing aviation training, academy role, preparation approach and next steps. Do not claim affiliation or placement without evidence.] Aviation pathways include ground operations, cabin support, cargo and technical support; requirements vary by employer and role.',
     who: ['Class 10/12 students exploring aviation ground or cabin roles', 'Graduates considering aviation support or technical pathways', 'Students comfortable with regulations, safety and customer service', 'Families comparing aviation and maritime pathways'],
     duration: '[CONFIRM: NGA preparation duration; external aviation training duration varies]',
@@ -185,7 +185,7 @@ export const courses = [
     faqs: [
       ['What aviation courses are available after 12th?', 'Ground operations, cabin support, cargo and technical support pathways exist. Requirements and recognised training differ; verify current criteria before enrolling.'],
       ['Are aviation salaries guaranteed?', 'No. Salaries depend on employer, role, location and experience. These are indicative industry ranges only; training does not guarantee recruitment.'],
-      ['What medical standards apply?', 'Standards vary by role—cabin, ground or technical. Obtain current authority guidelines and complete assessments before paying substantial fees.'],
+      ['What medical standards apply?', 'Standards vary by role, cabin, ground or technical. Obtain current authority guidelines and complete assessments before paying substantial fees.'],
       ['How do I choose between aviation and maritime?', 'Compare work environment, contract length, medical rules and family preferences. Use the eligibility checker and counselling before deciding.'],
       ['[CONFIRM: Add fifth aviation FAQ]', '[CONFIRM: Specific, verified answer.]']
     ],
@@ -199,10 +199,10 @@ export const courses = [
     path: '/courses/hospitality/',
     image: images.hospitality,
     imageAlt: 'Representative hospitality training session',
-    imageSlot: 'Course hero — replace with verified NGA hospitality training photograph.',
+    imageSlot: 'Course hero, replace with verified NGA hospitality training photograph.',
     eyebrow: 'Hospitality pathway',
     h1: 'Hospitality Training Pathway',
-    tagline: 'Explore hotel, resort and service roles after Class 10 or 12—with honest preparation and guidance.',
+    tagline: 'Explore hotel, resort and service roles after Class 10 or 12, with honest preparation and guidance.',
     overview: '[CONFIRM: Write 100–150 words describing hospitality training, academy role, preparation approach and next steps. Do not claim affiliation or placement without evidence.] Hospitality pathways include hotel, resort, restaurant and event support; requirements vary by employer.',
     who: ['Class 10/12 students exploring hotel or resort roles', 'Graduates considering hospitality support or management pathways', 'Students comfortable with customer service and teamwork', 'Families comparing hospitality and maritime pathways'],
     duration: '[CONFIRM: NGA preparation duration; external hospitality training duration varies]',
@@ -236,7 +236,7 @@ export const courses = [
     path: '/courses/course-template/',
     image: images.training,
     imageAlt: 'Representative classroom training session',
-    imageSlot: 'Template course hero — replace with course-specific photograph.',
+    imageSlot: 'Template course hero, replace with course-specific photograph.',
     eyebrow: 'Internal reusable page • [CONFIRM: course category]',
     h1: '[CONFIRM: Course Name]',
     tagline: '[CONFIRM: One specific, compliance-safe sentence about who this course helps and the outcome it prepares them for.]',
@@ -283,7 +283,7 @@ export const articles = [
     read: '9 min read',
     image: images.deck,
     alt: 'Ship sailing at sea representing Merchant Navy courses after 12th',
-    excerpt: 'DNS, BSc, marine engineering or rating route? Understand eligibility, medical checks, costs and the steps to take before paying any fee.',
+    excerpt: 'DNS, BSc, marine engineering or rating route? Understand course options, costs and the steps to take before making a decision.',
     category: 'Merchant Navy'
   },
   {
@@ -310,7 +310,7 @@ export const articles = [
     modified: '2026-11-10',
     read: '8 min read',
     image: images.port,
-    alt: 'Cargo vessel at port representing GP Rating course career scope',
+    alt: 'Container terminal representing GP Rating course career scope',
     excerpt: 'What GP Rating actually prepares you for, what the full fee sheet should include, and how to verify a safe next step after Class 10.',
     category: 'GP Rating'
   }
