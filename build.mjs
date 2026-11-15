@@ -3,6 +3,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from './site.config.mjs';
 import { courses, articles } from './src/data.mjs';
+import { subcourses } from './src/subcourses-data.mjs';
+import { subcoursePage } from './src/subcourses.mjs';
 import { homePage } from './src/home.mjs';
 import { coursesHubPage, coursePage } from './src/courses.mjs';
 import { cruiseCareersPage, merchantCareersPage } from './src/careers.mjs';
@@ -17,7 +19,8 @@ await mkdir(join(out, 'assets'), { recursive: true });
 const pages = [
   {path:'/',html:homePage},
   {path:'/courses/',html:coursesHubPage},
-  ...courses.map(course=>({path:course.path,html:()=>coursePage(course),noindex:course.noindex})),
+  ...courses.filter(course=>course.slug!=='gp-rating').map(course=>({path:course.path,html:()=>coursePage(course),noindex:course.noindex})),
+  ...subcourses.map(course=>({path:course.path,html:()=>subcoursePage(course)})),
   {path:'/cruise-line-careers/',html:cruiseCareersPage},
   {path:'/merchant-navy-careers/',html:merchantCareersPage},
   {path:'/about/',html:aboutPage},

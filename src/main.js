@@ -87,7 +87,7 @@
     if (name.value.trim().length < 2) { setFieldError(name, 'Please enter the student’s name.'); valid = false; } else setFieldError(name, '');
     if (!validMobile(phone.value)) { setFieldError(phone, 'Enter a valid 10-digit Indian mobile number.'); valid = false; } else setFieldError(phone, '');
     if (email.value && !email.validity.valid) { setFieldError(email, 'Enter a valid email address or leave this blank.'); valid = false; } else setFieldError(email, '');
-    if (!interest.value) { setFieldError(interest, 'Choose a pathway, or select Not Sure.'); valid = false; } else setFieldError(interest, '');
+    if (!interest.value) { setFieldError(interest, 'Choose a course, or select Not Sure Yet.'); valid = false; } else setFieldError(interest, '');
     const qualificationError = form.querySelector('.qualification-error');
     if (!qualification) { qualificationError.textContent = 'Select your last qualification.'; valid = false; } else qualificationError.textContent = '';
     if (!valid) form.querySelector('[aria-invalid="true"]')?.focus();
@@ -95,6 +95,11 @@
   };
 
   document.querySelectorAll('[data-enquiry-form]').forEach(form => {
+    // A detail card can deep-link to the shared admissions form with a valid course selected.
+    const requestedCourse = new URLSearchParams(window.location.search).get('course');
+    if (requestedCourse && Array.from(form.elements.interest.options).some(option => option.value === requestedCourse)) {
+      form.elements.interest.value = requestedCourse;
+    }
     form.querySelectorAll('input,select,textarea').forEach(input => {
       input.addEventListener('input', () => {
         if (input.name !== 'qualification') setFieldError(input, '');

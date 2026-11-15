@@ -183,8 +183,10 @@ This is a complete website implementation, but **business facts in `[CONFIRM: �
 
 ## November batch and pathways update
 
-The four featured pathways are Cruise Industry, Merchant Navy, Aviation and Hospitality. The GP Rating page remains available as a separate maritime guide. Sub-course details require confirmation.
+The four featured pathways are Cruise Industry, Merchant Navy, Aviation and Hospitality. The GP Rating page remains available as a separate maritime guide. Six sub-courses are configured in `src/subcourses-data.mjs`; each has its own detail page, including the existing GP Rating URL. Their inclusion lists and descriptions use the academy-supplied content.
 
 The November banner displays `batchSeatsStart` from `site.config.mjs` (currently 12). This is a manually maintained value, **not a live admissions inventory**; confirm the number and update it whenever availability changes. No simulated countdown is used. `batchSeatsMin` is a configuration placeholder, not an automatic decrement. Update or remove the November banner when it is no longer current. Confirm the 10+ years claim, monthly batch availability and all remaining `[CONFIRM: …]` details before publication.
 
 The enquiry inbox and brochure lead endpoint are not connected by default. Enquiries use a WhatsApp handoff, while brochure download does not save a lead unless an endpoint is configured. Employer names in the marquee are examples, not claims of partnerships or placements.
+
+Course posters use replaceable Unsplash image slots in `src/subcourses-data.mjs`. Review stock image licensing and the academy’s listed sponsorship and placement-support terms before publishing. The form selects a course from the `course` query parameter on the admissions page; it retains the existing WhatsApp handoff when the form endpoint is not configured.
