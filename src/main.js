@@ -30,6 +30,38 @@
     }).catch(() => {});
   }
 
+  // Animate only complete employer logos. Each mark fades out before reaching
+  // either edge, so a partial logo is never visible at the viewport boundary.
+  const logoMarquee = document.querySelector('[data-logo-marquee]');
+  if (logoMarquee && !reducedMotion) {
+    const items = [...logoMarquee.querySelectorAll('.employer-logo-item')];
+    logoMarquee.classList.add('is-animated');
+    let running = false;
+    let frameId = 0;
+    let lastUpdate = 0;
+    const drawLogos = now => {
+      if (!running) return;
+      if (now - lastUpdate >= 25) {
+        const edge = logoMarquee.getBoundingClientRect();
+        for (const item of items) {
+          const box = item.getBoundingClientRect();
+          const inside = Math.min(box.left - edge.left, edge.right - box.right);
+          item.style.opacity = String(Math.max(0, Math.min(1, (inside - 4) / 18)));
+        }
+        lastUpdate = now;
+      }
+      frameId = window.requestAnimationFrame(drawLogos);
+    };
+    const setRunning = visible => {
+      if (visible && !running) { running = true; frameId = window.requestAnimationFrame(drawLogos); }
+      else if (!visible && running) { running = false; window.cancelAnimationFrame(frameId); }
+    };
+    if ('IntersectionObserver' in window) {
+      const logoObserver = new IntersectionObserver(entries => setRunning(entries[0].isIntersecting));
+      logoObserver.observe(logoMarquee);
+    } else setRunning(true);
+  }
+
   // Mobile navigation: keyboard closable and scroll locked.
   const menuButton = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');

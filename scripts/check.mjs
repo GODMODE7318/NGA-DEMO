@@ -19,7 +19,8 @@ for (const file of files) {
   const duplicates = ids.filter((id,i)=>ids.indexOf(id)!==i);
   if (duplicates.length) errors.push(`${name}: duplicate IDs ${[...new Set(duplicates)].join(', ')}`);
   for (const match of html.matchAll(/<img\s([^>]+)>/g)) {
-    if (!/\salt="[^"]+"/.test(match[1])) errors.push(`${name}: image missing alt`);
+    // Decorative images intentionally use alt=""; every image must still have the attribute.
+    if (!/\salt="[^"]*"/.test(match[1])) errors.push(`${name}: image missing alt`);
     if (!/\swidth="\d+"/.test(match[1]) || !/\sheight="\d+"/.test(match[1])) errors.push(`${name}: image missing dimensions`);
   }
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {

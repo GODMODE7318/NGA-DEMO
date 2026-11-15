@@ -56,3 +56,20 @@
 @media(max-width:640px){.brand-logo{width:175px}.header-actions{gap:2px}.industry-grid,.planning-layout{grid-template-columns:minmax(0,1fr)}.employer-logos{gap:14px}.employer-logos img{width:80px;height:45px}.responsive-table{overflow-x:auto}.comparison-table{min-width:570px}.subcourse-detail-poster{height:auto;aspect-ratio:1}}
 @media(max-width:640px){.responsive-table{overflow:visible}.comparison-table{min-width:0}.comparison-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.comparison-table,.comparison-table tbody,.comparison-table tr,.comparison-table td{display:block;width:100%}.comparison-table tr{border:1px solid var(--line);margin-bottom:12px;background:white}.comparison-table td{display:flex;gap:12px;justify-content:space-between;align-items:start;font-size:.75rem}.comparison-table td::before{content:attr(data-label);font-weight:700;flex:0 0 38%}}
 @media(max-width:900px){.contact-grid{grid-template-columns:minmax(0,1fr)}.contact-details,.contact-grid .form-card,.contact-method>span{min-width:0}.contact-method strong,.contact-method em{overflow-wrap:anywhere}}
+
+/* Continuous employer logo line. The repeated groups contain only decorative copies. */
+.employer-marquee{width:100%;overflow:hidden}
+.employer-logo-track{display:block}
+.employer-logo-group{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:20px 26px}
+.employer-logo-group[aria-hidden="true"]{display:none}
+.employer-logo-item{display:flex;align-items:center;justify-content:center;width:110px;height:52px;flex:0 0 110px}
+.employer-logo-item img{width:110px;height:52px;object-fit:contain}
+.employer-marquee.is-animated .employer-logo-track{display:flex;width:max-content;animation:employer-logo-scroll 42s linear infinite;will-change:transform}
+.employer-marquee.is-animated .employer-logo-group{display:flex;justify-content:flex-start;flex-wrap:nowrap;gap:26px;flex:none;padding-right:26px}
+.employer-marquee.is-animated .employer-logo-item{opacity:0}
+.employer-marquee.is-animated:hover .employer-logo-track,.employer-marquee.is-animated:focus-within .employer-logo-track{animation-play-state:paused}
+@keyframes employer-logo-scroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+.floating-whatsapp{width:134px;height:44px;padding:10px 15px}
+.floating-whatsapp .floating-whatsapp-mark{display:block;width:24px;height:24px;flex:0 0 24px;fill:#fff}
+@media(max-width:640px){.employer-logo-group{gap:14px}.employer-logo-item{width:80px;height:45px;flex-basis:80px}.employer-logo-item img{width:80px;height:45px}.employer-marquee.is-animated .employer-logo-group{gap:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){.employer-marquee.is-animated .employer-logo-track{display:block;animation:none}.employer-marquee.is-animated .employer-logo-group{flex-wrap:wrap;justify-content:center;padding:0}.employer-marquee.is-animated .employer-logo-group[aria-hidden="true"]{display:none}.employer-marquee.is-animated .employer-logo-item{opacity:1!important}}
