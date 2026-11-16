@@ -16,7 +16,7 @@ export const site = {
   whatsapp: '918858334842', // Country code + number, digits only, e.g. 919876543210
   email: 'support@nationalglobalacademy.com', // e.g. admissions@nationalglobalacademy.com
   emailDisplay: 'support@nationalglobalacademy.com',
-  address: 'Bhutani Alphathum, Sector 90, Noida, Uttar Pradesh 201304',
+  address: '',
   mapsEmbedUrl: '', // [CONFIRM: Google Maps embed URL, not a regular maps link.]
   googleBusinessProfile: '', // [CONFIRM: Public Google Business Profile URL.]
 

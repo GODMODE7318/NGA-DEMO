@@ -1,5 +1,6 @@
 import http from 'node:http';
 import {readFile,stat,writeFile,mkdir,rename} from 'node:fs/promises';
+import {createReadStream} from 'node:fs';
 import {dirname,extname,join,normalize} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomBytes,timingSafeEqual} from 'node:crypto';
@@ -8,7 +9,7 @@ import {subcourses} from './src/subcourses-data.mjs';
 const base=dirname(fileURLToPath(import.meta.url)),root=join(base,'dist'),port=Number(process.env.PORT||3000);
 const dataFile=process.env.NGA_DATA_FILE || join(process.env.HOME||'/home/user','nga-private-data','content.json');
 const configured=Boolean(process.env.NGA_ADMIN_EMAIL&&process.env.NGA_ADMIN_PASSWORD);
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.xml':'application/xml','.txt':'text/plain; charset=utf-8'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.mp4':'video/mp4'};
 let sessions=new Map(),attempts=new Map();
 function same(a,b){let x=Buffer.from(String(a||'')),y=Buffer.from(String(b||''));return x.length===y.length&&timingSafeEqual(x,y)}
 function json(res,status,data){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data))}
@@ -21,6 +22,15 @@ function isSameOrigin(req){let o=req.headers.origin;try{return o&&new URL(o).hos
 function rebuild(){return new Promise((resolve,reject)=>{let child=spawn(process.execPath,['build.mjs'],{cwd:base,env:{...process.env,NGA_DATA_FILE:dataFile},stdio:'ignore'});child.on('close',c=>c===0?resolve():reject(Error('Build failed')));child.on('error',reject)})}
 const server=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url,'http://localhost'),path=decodeURIComponent(url.pathname);
+ const redirects={'/courses/diploma-in-cruise-hospitality-management/':'/courses/diploma-in-cruise-and-hospitality-management-dchm/','/blog/':'/guides/','/blog/merchant-navy-after-12th-guide-2026/':'/guides/merchant-navy-after-12th/','/blog/cruise-ship-jobs-indians-salary-roles/':'/guides/cruise-ship-careers/','/blog/gp-rating-course-fees-eligibility-career-scope/':'/guides/gp-rating/'};
+ if(redirects[path]){res.writeHead(308,{Location:redirects[path]});return res.end()}
+ if(path.startsWith('/assets/videos/')&&/^\/assets\/videos\/[a-z0-9-]+\.mp4$/.test(path)){
+  const file=join(root,path);let size;try{size=(await stat(file)).size}catch{return json(res,404,{error:'Not found'})}
+  let start=0,end=size-1,range=req.headers.range;
+  if(range){let m=/^bytes=(\d*)-(\d*)$/.exec(range);if(!m||(!m[1]&&!m[2])){res.writeHead(416,{'Content-Range':`bytes */${size}`});return res.end()}if(!m[1])start=Math.max(0,size-Number(m[2]));else start=Number(m[1]);if(m[2]&&m[1])end=Math.min(end,Number(m[2]));if(start>end||start>=size){res.writeHead(416,{'Content-Range':`bytes */${size}`});return res.end()}}
+  res.writeHead(range?206:200,{'Content-Type':'video/mp4','Accept-Ranges':'bytes','Content-Length':end-start+1,'Cache-Control':'public, max-age=3600',...(range?{'Content-Range':`bytes ${start}-${end}/${size}`}:{})});if(req.method==='HEAD')return res.end();return createReadStream(file,{start,end}).pipe(res)
+ }
+
  if(path.startsWith('/api/')){
   if(req.method!=='GET'&&!isSameOrigin(req))return json(res,403,{error:'Origin not allowed'});
   if(path==='/api/admin/status'&&req.method==='GET')return json(res,200,{configured,authenticated:session(req)});

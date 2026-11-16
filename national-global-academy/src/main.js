@@ -1,6 +1,12 @@
 (()=>{
  const toggle=document.querySelector('[data-menu-toggle]'),nav=document.querySelector('[data-nav]');
  if(toggle&&nav)toggle.addEventListener('click',()=>{let open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});
+ // Respect reduced-motion preferences and avoid playing videos off screen.
+ const videos=[...document.querySelectorAll('[data-stock-video]')];
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const setVideo=(v,on)=>{if(on&&!reduced.matches)v.play().catch(()=>{});else v.pause()};
+ if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>setVideo(e.target,e.isIntersecting)),{threshold:.15});videos.forEach(v=>observer.observe(v))}else videos.forEach(v=>setVideo(v,true));
+ reduced.addEventListener?.('change',()=>videos.forEach(v=>{if(reduced.matches)v.pause();else if(v.getBoundingClientRect().top<innerHeight&&v.getBoundingClientRect().bottom>0)v.play().catch(()=>{})}));
  const marquee=document.querySelector('[data-logo-marquee]');
  if(marquee&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const items=[...marquee.querySelectorAll('.employer-logo-item')];marquee.classList.add('is-animated');let active=false,id=0,last=0;const draw=now=>{if(!active)return;if(now-last>25){const e=marquee.getBoundingClientRect();for(const item of items){let b=item.getBoundingClientRect(),inside=Math.min(b.left-e.left,e.right-b.right);item.style.opacity=String(Math.max(0,Math.min(1,(inside-4)/18)))}last=now}id=requestAnimationFrame(draw)};const run=visible=>{if(visible&&!active){active=true;id=requestAnimationFrame(draw)}else if(!visible&&active){active=false;cancelAnimationFrame(id)}};if('IntersectionObserver'in window)new IntersectionObserver(e=>run(e[0].isIntersecting)).observe(marquee);else run(true)}
  // Verified faculty data can be swapped without changing the page template.

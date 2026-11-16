@@ -14,10 +14,10 @@ export const subcourses = [
     image: 'https://images.unsplash.com/photo-1667604987970-4bbd6ed51d0d?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Dining table overlooking the water', imageSlot: 'Cruise Professional poster: waterside dining, replace with approved course photograph.',
     description: 'This 2-month program includes an e-learning exam and an exit exam. It also brings together resume preparation, personalized interview preparation and a choice of department.',
-    inclusions: ['E-Learning Exam plus Exit Exam', 'Professional Resume by Industry Experts', '30 Days Personalized Interview Preparation', '100% Job Support Opportunity', 'Detailed Job Profile Guidance', 'Choose Your Preferred Department: Food and Beverage Service, Housekeeping, or Kitchen Operations (Culinary)']
+    inclusions: ['E-Learning Exam + Exit Exam', 'Professional Resume by Industry Experts', '30 Days Personalized Interview Preparation', '100% Job Support Opportunity', 'Detailed Job Profile Guidance', 'Choose Your Preferred Department: Food and Beverage Service, Housekeeping, or Kitchen Operations (Culinary)']
   },
   {
-    name: 'Diploma in Cruise and Hospitality Management (DCHM)', parent: 'Cruise Industry', duration: '12 Months', isoDuration: 'P12M', path: '/courses/diploma-in-cruise-hospitality-management/',
+    name: 'Diploma in Cruise and Hospitality Management (DCHM)', parent: 'Cruise Industry', duration: '12 Months', isoDuration: 'P12M', path: '/courses/diploma-in-cruise-and-hospitality-management-dchm/',
     image: 'https://images.unsplash.com/photo-1667604963377-93dda0e11b1b?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Tables and chairs on a waterside deck', imageSlot: 'DCHM poster: waterside hospitality, replace with approved course photograph.',
     description: 'This 12-month diploma brings together hospitality principles, guest relations and food and beverage service. It includes professional interview preparation and six months of industrial training with a stipend.',
