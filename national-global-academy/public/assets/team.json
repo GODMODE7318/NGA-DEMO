@@ -1,0 +1,7 @@
+{
+  "profiles": [
+    {"role": "Academic and Maritime Guidance", "description": "Our team helps students explore academic and maritime pathways."},
+    {"role": "Student and Parent Counselling", "description": "Our counsellors help families discuss options and next steps."},
+    {"role": "Hospitality and Interview Preparation", "description": "Our team supports service skills and interview readiness."}
+  ]
+}
